@@ -1,1 +1,1 @@
-import { NextResponse } from 'next/server';export async function POST(_:Request,{params}:{params:{id:string}}){return NextResponse.json({id:params.id,approved:true})}
+import { NextResponse } from 'next/server';export async function POST(_:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;return NextResponse.json({id,approved:true})}

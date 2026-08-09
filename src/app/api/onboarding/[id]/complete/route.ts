@@ -1,1 +1,1 @@
-import { NextResponse } from 'next/server';export async function POST(request:Request,{params}:{params:{id:string}}){const body=await request.json();return NextResponse.json({id:params.id,...body,status:'done'})}
+import { NextResponse } from 'next/server';export async function POST(request:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;const body=await request.json();return NextResponse.json({id,...body,status:'done'})}
