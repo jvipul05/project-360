@@ -1,0 +1,1 @@
+import { NextResponse } from 'next/server';import { accessRequests } from '@/data/mock';export async function GET(){return NextResponse.json(accessRequests)}export async function POST(request:Request){const body=await request.json();return NextResponse.json({...body,id:`AR-${Date.now()}`,requested:new Date().toISOString().slice(0,10),status:'PENDING'})}
